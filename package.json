@@ -9,13 +9,13 @@
   "author": "Alex Monroe",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^10.0.4",
+    "autoprefixer": "^10.1.0",
     "browser-sync": "^2.26.13",
     "gulp": "^4.0.2",
     "gulp-csso": "^4.0.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-postcss": "^9.0.0",
-    "postcss": "^8.1.14",
-    "tailwindcss": "^2.0.1"
+    "postcss": "^8.2.1",
+    "tailwindcss": "^2.0.2"
   }
 }

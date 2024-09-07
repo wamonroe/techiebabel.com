@@ -1,7 +1,5 @@
 import React from "react";
 
-import Button from "../Button";
-
 type CounterProps = {
   title: string;
   value: number;

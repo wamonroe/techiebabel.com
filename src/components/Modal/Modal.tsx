@@ -1,4 +1,4 @@
-import { useState, PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 
 type ModalProps = {

@@ -1,23 +1,11 @@
-import React from "react";
-
 type CounterProps = {
   title: string;
   value: number;
-  setValue: React.Dispatch<React.SetStateAction<number>>;
+  onDecrement: () => void;
+  onIncrement: () => void;
 };
 
-const Counter = ({ title, value, setValue }: CounterProps) => {
-  const handleIncrement = () => {
-    setValue((prevValue) => prevValue + 1);
-  };
-
-  const handleDecrement = () => {
-    setValue((prevValue) => {
-      const newCount = prevValue - 1;
-      return newCount < 0 ? 0 : newCount;
-    });
-  };
-
+const Counter = ({ title, value, onDecrement, onIncrement }: CounterProps) => {
   return (
     <div className="flex-auto">
       <h4 className="text-sm font-semibold leading-6 text-gray-900">{title}</h4>
@@ -25,7 +13,7 @@ const Counter = ({ title, value, setValue }: CounterProps) => {
         <button
           type="button"
           className="w-10 rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-          onClick={handleDecrement}
+          onClick={onDecrement}
         >
           -
         </button>
@@ -38,7 +26,7 @@ const Counter = ({ title, value, setValue }: CounterProps) => {
         <button
           type="button"
           className="w-10 rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-          onClick={handleIncrement}
+          onClick={onIncrement}
         >
           +
         </button>

@@ -12,8 +12,6 @@ export default eslintTypescript.config(
     extends: [
       eslintJs.configs.recommended,
       ...eslintTypescript.configs.recommended,
-      ...eslintReact.configs.recommended,
-      ...eslintPretter.configs,
     ],
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
@@ -21,14 +19,24 @@ export default eslintTypescript.config(
       globals: globals.browser,
     },
     plugins: {
+      react: eslintReact,
       "react-hooks": eslintReactHooks,
       "react-refresh": eslintReactRefresh,
+      prettier: eslintPretter,
     },
     rules: {
       ...eslintReactHooks.configs.recommended.rules,
       "react-refresh/only-export-components": [
         "warn",
         { allowConstantExport: true },
+      ],
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
+        },
       ],
     },
   }

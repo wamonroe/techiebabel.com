@@ -6,12 +6,14 @@ type AttackRollOptions = {
 };
 
 type RollResult = {
+  dice: string;
   rolls: number[];
   total: number;
 };
 
 type AttackRollResult = RollResult & {
   status: string;
+  critRolls: number[];
   discardedRolls: number[];
 };
 
@@ -37,14 +39,14 @@ const roll = (dice: string): RollResult => {
   const { count, sides } = parseDice(dice);
   const rolls = doRoll(count, sides);
   const total = sum(rolls);
-  return { rolls, total };
+  return { dice, rolls, total };
 };
 
 // Helper functions (internal use only)
 
 const doAttackRoll = (count: number, sides: number) => {
   const rolls = doRoll(count, sides);
-  return finalizeAttackRoll(sides, rolls);
+  return finalizeAttackRoll(count, sides, rolls);
 };
 
 const doAttackRollWithAdvantage = (
@@ -54,7 +56,7 @@ const doAttackRollWithAdvantage = (
 ) => {
   const allRolls = doRoll(count + stacks, sides);
   const { rolls, discardedRolls } = dropLowest(stacks, allRolls);
-  return finalizeAttackRoll(sides, rolls, discardedRolls);
+  return finalizeAttackRoll(count, sides, rolls, discardedRolls);
 };
 
 const doAttackRollWithDisadvantage = (
@@ -64,7 +66,7 @@ const doAttackRollWithDisadvantage = (
 ) => {
   const allRolls = doRoll(count + stacks, sides);
   const { rolls, discardedRolls } = dropHighest(stacks, allRolls);
-  return finalizeAttackRoll(sides, rolls, discardedRolls);
+  return finalizeAttackRoll(count, sides, rolls, discardedRolls);
 };
 
 const doRoll = (count: number, sides: number) => {
@@ -127,23 +129,42 @@ const extraCritRolls = (sides: number): number[] => {
 };
 
 const finalizeAttackRoll = (
+  count: number,
   sides: number,
   rolls: number[],
   discardedRolls: number[] = []
 ): AttackRollResult => {
+  const dice = `${count}d${sides}`;
   const primaryRoll = rolls[0];
+
   if (isCrit(primaryRoll, sides)) {
-    const rollsWithCrit = [...rolls, ...extraCritRolls(sides)];
+    const critRolls = extraCritRolls(sides);
     return {
+      dice,
       status: "Crit",
-      rolls: rollsWithCrit,
+      rolls,
+      critRolls,
       discardedRolls,
-      total: sum(rollsWithCrit),
+      total: sum([...rolls, ...critRolls]),
     };
   } else if (isMiss(primaryRoll)) {
-    return { status: "Miss", rolls, discardedRolls, total: 0 };
+    return {
+      dice,
+      status: "Miss",
+      rolls,
+      critRolls: [],
+      discardedRolls,
+      total: 0,
+    };
   } else {
-    return { status: "Hit", rolls, discardedRolls, total: sum(rolls) };
+    return {
+      dice,
+      status: "Hit",
+      rolls,
+      critRolls: [],
+      discardedRolls,
+      total: sum(rolls),
+    };
   }
 };
 

@@ -86,7 +86,7 @@ const AttackRoller = () => {
       </h2>
       <Card>
         <Card.Body>
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-8 sm:gap-3">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-9 md:gap-3">
             <DiceButton dice="1d4" />
             <DiceButton dice="2d4" />
             <DiceButton dice="3d4" />
@@ -95,6 +95,7 @@ const AttackRoller = () => {
             <DiceButton dice="1d8" />
             <DiceButton dice="1d10" />
             <DiceButton dice="1d12" />
+            <DiceButton dice="1d20" />
           </div>
         </Card.Body>
       </Card>

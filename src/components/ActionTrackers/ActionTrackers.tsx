@@ -76,18 +76,26 @@ const ActionTrackers = () => {
 
   return (
     <>
-      <div className="flex justify-between">
+      <div className="flex flex-col md:flex-row md:justify-between">
         <h2 className="text-2xl font-bold leading-7 text-white sm:truncate sm:text-3xl sm:tracking-tight">
           Action Trackers
         </h2>
-        <div className="space-x-3">
-          <Button color="soft" size="sm" onClick={handleSetAll(false)}>
+        <div className="mt-3 flex space-x-3 md:mt-0">
+          <Button
+            color="soft"
+            className="w-full md:w-auto"
+            onClick={handleSetAll(false)}
+          >
             Clear all actions
           </Button>
-          <Button color="soft" size="sm" onClick={handleSetAll(true)}>
+          <Button
+            color="soft"
+            className="w-full md:w-auto"
+            onClick={handleSetAll(true)}
+          >
             Reset all actions
           </Button>
-          <Button size="lg" onClick={handleModalOpen}>
+          <Button className="w-full md:w-auto" onClick={handleModalOpen}>
             Add tracker
           </Button>
         </div>

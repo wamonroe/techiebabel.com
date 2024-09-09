@@ -25,7 +25,7 @@ const Content = () => {
           <DiceIcon />
         </div>
         <div className="mt-3 text-center sm:mt-5">
-          <Modal.Title>Roll {dice}</Modal.Title>
+          <Modal.Title>{dice} Attack</Modal.Title>
           <div className="mt-2 flex">
             <Counter
               title="Advantage"

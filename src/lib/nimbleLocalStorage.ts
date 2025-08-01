@@ -18,7 +18,7 @@ type NimbleLocalStorage = {
 
 const emptyLocalStorage = (): NimbleLocalStorage => ({
   actionTrackers: [],
-  version: LOCAL_STORAGE_VERSION,
+  version: LOCAL_STORAGE_VERSION
 });
 
 const getLocalStorage = () => {
@@ -47,10 +47,7 @@ const setLocalStorage = (store: NimbleLocalStorage) => {
   localStorage.setItem(LOCAL_STORAGE_KEY, storeStr);
 };
 
-const combineActionTrackers = (
-  trackers: ActionTrackerType[],
-  tracker: ActionTrackerType
-) => {
+const combineActionTrackers = (trackers: ActionTrackerType[], tracker: ActionTrackerType) => {
   const index = trackers.findIndex((t) => t.id === tracker.id);
   if (index >= 0) {
     trackers[index] = tracker;
@@ -63,7 +60,7 @@ const combineActionTrackers = (
 const cloneActionTracker = (tracker: ActionTrackerType): ActionTrackerType => {
   return {
     ...tracker,
-    actions: { ...tracker.actions },
+    actions: { ...tracker.actions }
   };
 };
 
@@ -75,8 +72,8 @@ const createActionTracker = (name: string): ActionTrackerType => {
     actions: {
       1: true,
       2: true,
-      3: true,
-    },
+      3: true
+    }
   };
   setActionTracker(actionTracker);
   return actionTracker;
@@ -89,9 +86,7 @@ const getActionTracker = (id: string) => {
 
 const setActionTracker = (actionTracker: ActionTrackerType) => {
   const store = getLocalStorage();
-  const trackerIdx = store.actionTrackers.findIndex(
-    (t) => t.id === actionTracker.id
-  );
+  const trackerIdx = store.actionTrackers.findIndex((t) => t.id === actionTracker.id);
   if (trackerIdx > -1) {
     store.actionTrackers[trackerIdx] = actionTracker;
   } else {
@@ -111,7 +106,7 @@ const nimbleLocalStorage = {
   createActionTracker,
   getActionTracker,
   setActionTracker,
-  delActionTracker,
+  delActionTracker
 };
 
 export { cloneActionTracker, combineActionTrackers, getRandomId };

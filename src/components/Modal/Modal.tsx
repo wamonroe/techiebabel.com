@@ -1,5 +1,5 @@
-import { PropsWithChildren } from "react";
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
+import { PropsWithChildren } from "react";
 
 import XButton from "../XButton";
 

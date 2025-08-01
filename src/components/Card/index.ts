@@ -7,7 +7,7 @@ import Header from "./Header";
 const Card = Object.assign(CardComponent, {
   Body,
   Footer,
-  Header,
+  Header
 });
 
 export default Card;

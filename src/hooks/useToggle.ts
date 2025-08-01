@@ -17,7 +17,7 @@ const useToggle = (): UseOpenStateReturn => {
     open,
     handleOpen,
     handleClose,
-    handleToggle,
+    handleToggle
   };
 };
 

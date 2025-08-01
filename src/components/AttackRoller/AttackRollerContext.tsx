@@ -30,7 +30,7 @@ const AttackRollerContext = createContext<AttackRollerContextType>({
   incrementDis: () => {},
   decrementDis: () => {},
   result: undefined,
-  clearResult: () => {},
+  clearResult: () => {}
 });
 
 export default AttackRollerContext;

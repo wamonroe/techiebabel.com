@@ -1,22 +1,14 @@
 import { useContext } from "react";
 
-import AttackRollerContext from "../AttackRollerContext";
 import Button from "../../Button";
+import Modal from "../../Modal";
+import AttackRollerContext from "../AttackRollerContext";
 import Counter from "./Counter";
 import DiceIcon from "./DiceIcon";
-import Modal from "../../Modal";
 
 const Content = () => {
-  const {
-    adv,
-    decrementAdv,
-    decrementDis,
-    dice,
-    dis,
-    handleRoll,
-    incrementAdv,
-    incrementDis,
-  } = useContext(AttackRollerContext);
+  const { adv, decrementAdv, decrementDis, dice, dis, handleRoll, incrementAdv, incrementDis } =
+    useContext(AttackRollerContext);
 
   return (
     <>

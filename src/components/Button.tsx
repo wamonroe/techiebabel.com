@@ -37,7 +37,7 @@ const Button = ({
   size = "md",
   className,
   onClick,
-  children,
+  children
 }: PropsWithChildren<ButtonProps>) => {
   return (
     <button

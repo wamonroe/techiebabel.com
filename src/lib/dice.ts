@@ -19,10 +19,7 @@ type AttackRollResult = RollResult & {
 
 // Core functions (export these)
 
-const attackRoll = (
-  dice: string,
-  options: AttackRollOptions = {}
-): AttackRollResult => {
+const attackRoll = (dice: string, options: AttackRollOptions = {}): AttackRollResult => {
   const { count, sides } = parseDice(dice);
   const { hasAdv, hasDis, stacks } = parseAttackRollOptions(options);
 
@@ -49,21 +46,13 @@ const doAttackRoll = (count: number, sides: number) => {
   return finalizeAttackRoll(count, sides, rolls);
 };
 
-const doAttackRollWithAdvantage = (
-  count: number,
-  sides: number,
-  stacks: number
-) => {
+const doAttackRollWithAdvantage = (count: number, sides: number, stacks: number) => {
   const allRolls = doRoll(count + stacks, sides);
   const { rolls, discardedRolls } = dropLowest(stacks, allRolls);
   return finalizeAttackRoll(count, sides, rolls, discardedRolls);
 };
 
-const doAttackRollWithDisadvantage = (
-  count: number,
-  sides: number,
-  stacks: number
-) => {
+const doAttackRollWithDisadvantage = (count: number, sides: number, stacks: number) => {
   const allRolls = doRoll(count + stacks, sides);
   const { rolls, discardedRolls } = dropHighest(stacks, allRolls);
   return finalizeAttackRoll(count, sides, rolls, discardedRolls);
@@ -145,7 +134,7 @@ const finalizeAttackRoll = (
       rolls,
       critRolls,
       discardedRolls,
-      total: sum([...rolls, ...critRolls]),
+      total: sum([...rolls, ...critRolls])
     };
   } else if (isMiss(primaryRoll)) {
     return {
@@ -154,7 +143,7 @@ const finalizeAttackRoll = (
       rolls,
       critRolls: [],
       discardedRolls,
-      total: 0,
+      total: 0
     };
   } else {
     return {
@@ -163,10 +152,10 @@ const finalizeAttackRoll = (
       rolls,
       critRolls: [],
       discardedRolls,
-      total: sum(rolls),
+      total: sum(rolls)
     };
   }
 };
 
-export type { AttackRollOptions, AttackRollResult, RollResult };
 export { attackRoll, roll };
+export type { AttackRollOptions, AttackRollResult, RollResult };

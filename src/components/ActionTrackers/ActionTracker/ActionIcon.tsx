@@ -1,12 +1,8 @@
 import React from "react";
 import { twMerge } from "tailwind-merge";
 
+import { faDiceOne, faDiceThree, faDiceTwo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faDiceOne,
-  faDiceTwo,
-  faDiceThree,
-} from "@fortawesome/free-solid-svg-icons";
 
 type ActionIconProps = {
   sides: 1 | 2 | 3;
@@ -25,9 +21,7 @@ const ActionIcon = ({ sides, available, onClick }: ActionIconProps) => {
     <button
       className={twMerge(
         "rounded-md bg-white",
-        available
-          ? "text-red-700 hover:text-red-600"
-          : "text-gray-300 hover:text-gray-400"
+        available ? "text-red-700 hover:text-red-600" : "text-gray-300 hover:text-gray-400"
       )}
       onClick={handleClick}
     >

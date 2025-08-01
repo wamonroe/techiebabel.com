@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { attackRoll, AttackRollResult } from "../../lib/dice";
 
-import AttackRollerContext from "./AttackRollerContext";
 import Card from "../Card";
+import AttackRollerContext from "./AttackRollerContext";
 import DiceButton from "./DiceButton";
 import RollModal from "./RollModal";
 
@@ -78,7 +78,7 @@ const AttackRoller = () => {
         incrementDis,
         decrementDis,
         result,
-        clearResult,
+        clearResult
       }}
     >
       <h2 className="text-2xl font-bold leading-7 text-white sm:truncate sm:text-3xl sm:tracking-tight">

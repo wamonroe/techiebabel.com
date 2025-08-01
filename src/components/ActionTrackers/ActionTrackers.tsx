@@ -1,24 +1,22 @@
 import { useState } from "react";
 import useToggle from "../../hooks/useToggle";
 import nimbleLocalStorage, {
-  cloneActionTracker,
-  combineActionTrackers,
   ActionTrackerType,
+  cloneActionTracker,
+  combineActionTrackers
 } from "../../lib/nimbleLocalStorage";
 
-import ActionTracker, { SetActionTrackerCallback } from "./ActionTracker";
 import Button from "../Button";
+import ActionTracker, { SetActionTrackerCallback } from "./ActionTracker";
 import NewTrackerModal from "./NewTrackerModal";
 
 const ActionTrackers = () => {
   const storage = nimbleLocalStorage.get();
-  const [actionTrackers, setActionTrackers] = useState<ActionTrackerType[]>(
-    storage.actionTrackers
-  );
+  const [actionTrackers, setActionTrackers] = useState<ActionTrackerType[]>(storage.actionTrackers);
   const {
     open: newModalOpen,
     handleOpen: handleModalOpen,
-    handleClose: handleModalClose,
+    handleClose: handleModalClose
   } = useToggle();
 
   const setActionTracker = (id: string) => {
@@ -81,18 +79,10 @@ const ActionTrackers = () => {
           Action Trackers
         </h2>
         <div className="mt-3 flex space-x-3 md:mt-0">
-          <Button
-            color="soft"
-            className="w-full md:w-auto"
-            onClick={handleSetAll(false)}
-          >
+          <Button color="soft" className="w-full md:w-auto" onClick={handleSetAll(false)}>
             Clear all actions
           </Button>
-          <Button
-            color="soft"
-            className="w-full md:w-auto"
-            onClick={handleSetAll(true)}
-          >
+          <Button color="soft" className="w-full md:w-auto" onClick={handleSetAll(true)}>
             Reset all actions
           </Button>
           <Button className="w-full md:w-auto" onClick={handleModalOpen}>
@@ -110,11 +100,7 @@ const ActionTrackers = () => {
           />
         ))}
       </div>
-      <NewTrackerModal
-        open={newModalOpen}
-        onClose={handleModalClose}
-        onConfirm={handleAdd}
-      />
+      <NewTrackerModal open={newModalOpen} onClose={handleModalClose} onConfirm={handleAdd} />
     </>
   );
 };

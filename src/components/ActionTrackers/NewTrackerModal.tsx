@@ -11,11 +11,7 @@ type NewTrackerModalProps = {
   onConfirm: (name: string) => void;
 };
 
-const NewTrackerModal = ({
-  open,
-  onClose,
-  onConfirm,
-}: NewTrackerModalProps) => {
+const NewTrackerModal = ({ open, onClose, onConfirm }: NewTrackerModalProps) => {
   const [name, setName] = useState("New Action Tracker");
   const [hasError, setHasError] = useState(false);
   const nameInput = useRef<HTMLInputElement>(null);
@@ -65,10 +61,7 @@ const NewTrackerModal = ({
   return (
     <Modal open={open} onClose={onClose}>
       <Modal.Content>
-        <label
-          htmlFor="name"
-          className="block text-sm font-medium leading-6 text-gray-900"
-        >
+        <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
           Name
         </label>
         <div className="relative mt-2 rounded-md shadow-sm">
@@ -95,10 +88,7 @@ const NewTrackerModal = ({
           />
           {hasError && (
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-              <ExclamationCircleIcon
-                aria-hidden="true"
-                className="h-5 w-5 text-red-500"
-              />
+              <ExclamationCircleIcon aria-hidden="true" className="h-5 w-5 text-red-500" />
             </div>
           )}
         </div>

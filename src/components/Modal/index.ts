@@ -7,7 +7,7 @@ import Title from "./Title";
 const Modal = Object.assign(ModalComponent, {
   Actions,
   Content,
-  Title,
+  Title
 });
 
 export default Modal;

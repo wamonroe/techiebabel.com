@@ -1,13 +1,11 @@
 import { ActionTrackerType } from "../../../lib/nimbleLocalStorage";
 
-import ActionIcon from "./ActionIcon";
 import Button from "../../Button";
 import Card from "../../Card";
 import XButton from "../../XButton";
+import ActionIcon from "./ActionIcon";
 
-export type SetActionTrackerCallback = (
-  tracker: ActionTrackerType
-) => ActionTrackerType;
+export type SetActionTrackerCallback = (tracker: ActionTrackerType) => ActionTrackerType;
 
 type ActionTrackerProps = {
   tracker: ActionTrackerType;
@@ -15,11 +13,7 @@ type ActionTrackerProps = {
   onRemove: () => void;
 };
 
-const ActionTracker = ({
-  tracker,
-  setTracker,
-  onRemove,
-}: ActionTrackerProps) => {
+const ActionTracker = ({ tracker, setTracker, onRemove }: ActionTrackerProps) => {
   const handleToggle = (action: 1 | 2 | 3) => {
     return () => {
       setTracker((tracker) => {
@@ -56,21 +50,9 @@ const ActionTracker = ({
       <Card.Body>
         <div className="flex justify-between">
           <div className="flex flex-1 justify-center space-x-3">
-            <ActionIcon
-              sides={1}
-              available={tracker.actions[1]}
-              onClick={handleToggle(1)}
-            />
-            <ActionIcon
-              sides={2}
-              available={tracker.actions[2]}
-              onClick={handleToggle(2)}
-            />
-            <ActionIcon
-              sides={3}
-              available={tracker.actions[3]}
-              onClick={handleToggle(3)}
-            />
+            <ActionIcon sides={1} available={tracker.actions[1]} onClick={handleToggle(1)} />
+            <ActionIcon sides={2} available={tracker.actions[2]} onClick={handleToggle(2)} />
+            <ActionIcon sides={3} available={tracker.actions[3]} onClick={handleToggle(3)} />
           </div>
           <div className="flex flex-col justify-center space-y-1.5">
             <Button color="primary" size="xs" onClick={handleReset}>

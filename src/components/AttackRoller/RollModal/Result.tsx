@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { AttackRollResult } from "../../../lib/dice";
 
-import AttackRollerContext from "../AttackRollerContext";
 import Button from "../../Button";
-import DiceIcon from "./DiceIcon";
 import Modal from "../../Modal";
+import AttackRollerContext from "../AttackRollerContext";
+import DiceIcon from "./DiceIcon";
 
 type ResultProps = {
   result: AttackRollResult;
@@ -40,9 +40,7 @@ const Result = ({ result }: ResultProps) => {
                 {primaryDice.length > 1 ? (
                   <>
                     &#91;{primaryDice[0]}
-                    <span className="text-sm">
-                      , {primaryDice.slice(1).join(", ")}
-                    </span>
+                    <span className="text-sm">, {primaryDice.slice(1).join(", ")}</span>
                     &#93; = {primaryDice[0]}
                   </>
                 ) : (

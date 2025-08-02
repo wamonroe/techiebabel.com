@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { attackRoll, AttackRollResult } from "../../lib/dice";
+import type { AttackRollResult } from "../../lib/dice";
+import { attackRoll } from "../../lib/dice";
 
 import Card from "../Card";
 import AttackRollerContext from "./AttackRollerContext";

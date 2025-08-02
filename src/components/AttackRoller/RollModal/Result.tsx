@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AttackRollResult } from "../../../lib/dice";
+import type { AttackRollResult } from "../../../lib/dice";
 
 import Button from "../../Button";
 import Modal from "../../Modal";

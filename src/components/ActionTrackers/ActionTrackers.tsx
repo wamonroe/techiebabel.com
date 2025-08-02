@@ -1,13 +1,14 @@
 import { useState } from "react";
 import useToggle from "../../hooks/useToggle";
+import type { ActionTrackerType } from "../../lib/nimbleLocalStorage";
 import nimbleLocalStorage, {
-  ActionTrackerType,
   cloneActionTracker,
   combineActionTrackers
 } from "../../lib/nimbleLocalStorage";
 
 import Button from "../Button";
-import ActionTracker, { SetActionTrackerCallback } from "./ActionTracker";
+import type { SetActionTrackerCallback } from "./ActionTracker";
+import ActionTracker from "./ActionTracker";
 import NewTrackerModal from "./NewTrackerModal";
 
 const ActionTrackers = () => {

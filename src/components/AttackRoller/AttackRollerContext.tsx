@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { AttackRollResult } from "../../lib/dice";
+import type { AttackRollResult } from "../../lib/dice";
 
 type AttackRollerContextType = {
   modalOpen: boolean;

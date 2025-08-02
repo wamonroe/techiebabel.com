@@ -1,19 +1,26 @@
-import pluginJs from "@eslint/js";
+import js from "@eslint/js";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
-import pluginReact from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
+import { globalIgnores } from "eslint/config";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
-export default [
-  { files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"] },
-  { ignores: [".devbox/**/*", "node_modules/**/*", "dist/**/*"] },
-  { languageOptions: { globals: globals.browser } },
-  { settings: { react: { version: "detect" } } },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
-  eslintPluginPrettierRecommended,
+export default tseslint.config([
+  globalIgnores(["dist"]),
   {
+    files: ["**/*.{ts,tsx}"],
+    extends: [
+      js.configs.recommended,
+      tseslint.configs.recommended,
+      reactHooks.configs["recommended-latest"],
+      reactRefresh.configs.vite,
+      eslintPluginPrettierRecommended
+    ],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser
+    },
     rules: {
       "@typescript-eslint/no-unused-vars": [
         "error",
@@ -22,8 +29,7 @@ export default [
           varsIgnorePattern: "^_",
           caughtErrorsIgnorePattern: "^_"
         }
-      ],
-      "react/react-in-jsx-scope": "off"
+      ]
     }
   }
-];
+]);

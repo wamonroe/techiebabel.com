@@ -49,5 +49,6 @@
   "prettier.useEditorConfig": false,
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "yaml.schemaStore.enable": false
+  "yaml.schemaStore.enable": false,
+  "css.lint.unknownAtRules": "ignore"
 }

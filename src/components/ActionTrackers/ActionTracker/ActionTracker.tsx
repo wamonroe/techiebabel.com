@@ -1,4 +1,4 @@
-import { ActionTrackerType } from "../../../lib/nimbleLocalStorage";
+import type { ActionTrackerType } from "../../../lib/nimbleLocalStorage";
 
 import Button from "../../Button";
 import Card from "../../Card";

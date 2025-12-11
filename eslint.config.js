@@ -7,7 +7,7 @@ import globals from "globals";
 import ts from "typescript-eslint";
 
 export default defineConfig([
-  globalIgnores(["dist"]),
+  globalIgnores(["dist", ".react-router", "node_modules", ".devbox"]),
   {
     files: ["**/*.{ts,tsx}"],
     languageOptions: {

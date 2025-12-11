@@ -21,19 +21,23 @@ const emptyLocalStorage = (): NimbleLocalStorage => ({
   version: LOCAL_STORAGE_VERSION
 });
 
+const isBrowser = typeof window !== "undefined" && typeof window.localStorage !== "undefined";
+
 const getLocalStorage = () => {
-  const storeStr = localStorage.getItem(LOCAL_STORAGE_KEY);
+  if (!isBrowser) return emptyLocalStorage();
+
+  const storeStr = window.localStorage.getItem(LOCAL_STORAGE_KEY);
   if (!storeStr) return emptyLocalStorage();
 
   try {
     const json = JSON.parse(storeStr);
     if (json.version !== LOCAL_STORAGE_VERSION) {
-      localStorage.removeItem(LOCAL_STORAGE_KEY);
+      window.localStorage.removeItem(LOCAL_STORAGE_KEY);
       return emptyLocalStorage();
     }
     return json as NimbleLocalStorage;
   } catch {
-    localStorage.removeItem(LOCAL_STORAGE_KEY);
+    window.localStorage.removeItem(LOCAL_STORAGE_KEY);
     return emptyLocalStorage();
   }
 };
@@ -43,8 +47,10 @@ const getRandomId = (): string => {
 };
 
 const setLocalStorage = (store: NimbleLocalStorage) => {
+  if (!isBrowser) return;
+
   const storeStr = JSON.stringify(store);
-  localStorage.setItem(LOCAL_STORAGE_KEY, storeStr);
+  window.localStorage.setItem(LOCAL_STORAGE_KEY, storeStr);
 };
 
 const combineActionTrackers = (trackers: ActionTrackerType[], tracker: ActionTrackerType) => {

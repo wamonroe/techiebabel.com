@@ -4,12 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "react-router build",
+    "dev": "react-router dev",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "check-types": "react-router typegen && tsc",
     "check-updates": "npx npm-check-updates",
-    "do-updates": "npx npm-check-updates -u"
+    "do-updates": "npx npm-check-updates -u",
+    "prettier": "prettier ./src/**/* --write"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
@@ -19,6 +20,8 @@
     "@fortawesome/react-fontawesome": "^3.1.1",
     "@headlessui/react": "^2.2.9",
     "@heroicons/react": "^2.2.0",
+    "@react-router/node": "^7.10.1",
+    "isbot": "^5",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "react-router-dom": "^7.10.1",
@@ -26,8 +29,10 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@react-router/dev": "^7.10.1",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/vite": "^4.1.17",
+    "@types/node": "^25.0.0",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.2",
@@ -41,6 +46,7 @@
     "tailwindcss": "^4.1.17",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.49.0",
-    "vite": "^7.2.7"
+    "vite": "^7.2.7",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }

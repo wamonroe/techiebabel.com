@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "react-router build",
+    "postbuild": "cp dist/client/__spa-fallback.html dist/client/404.html",
     "dev": "react-router dev",
     "lint": "eslint .",
     "check-types": "react-router typegen && tsc",

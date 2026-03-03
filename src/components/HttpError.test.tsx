@@ -1,5 +1,5 @@
-import renderWithRouter from "@/test/renderWithRouter";
 import { screen } from "@testing-library/react";
+import renderWithRouter from "../../test/renderWithRouter";
 import HttpError from "./HttpError";
 
 describe("HttpError", () => {

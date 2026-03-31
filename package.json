@@ -9,8 +9,6 @@
     "dev": "react-router dev",
     "lint": "eslint .",
     "check-types": "react-router typegen && tsc",
-    "check-updates": "npx npm-check-updates",
-    "do-updates": "npx npm-check-updates -u",
     "prettier": "prettier ./src/**/* --write",
     "test": "vitest run",
     "test:watch": "vitest"

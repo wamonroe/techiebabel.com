@@ -21,24 +21,24 @@
     "@fortawesome/react-fontawesome": "^3.3.1",
     "@headlessui/react": "^2.2.10",
     "@heroicons/react": "^2.2.0",
-    "@react-router/node": "^7.15.0",
+    "@react-router/node": "^7.15.1",
     "isbot": "^5.1.40",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "react-router-dom": "^7.15.0",
-    "tailwind-merge": "^3.5.0"
+    "react-router-dom": "^7.15.1",
+    "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@react-router/dev": "^7.15.0",
+    "@react-router/dev": "^7.15.1",
     "@tailwindcss/forms": "^0.5.11",
-    "@tailwindcss/vite": "^4.2.4",
+    "@tailwindcss/vite": "^4.3.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
-    "@types/node": "^25.6.2",
+    "@types/node": "^25.8.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.1",
+    "@vitejs/plugin-react": "^6.0.2",
     "eslint": "^10.3.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
@@ -47,10 +47,10 @@
     "globals": "^17.6.0",
     "happy-dom": "^20.9.0",
     "prettier": "^3.8.3",
-    "tailwindcss": "^4.2.4",
+    "tailwindcss": "^4.3.0",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.59.2",
-    "vite": "^8.0.11",
-    "vitest": "^4.1.5"
+    "typescript-eslint": "^8.59.3",
+    "vite": "^8.0.13",
+    "vitest": "^4.1.6"
   }
 }

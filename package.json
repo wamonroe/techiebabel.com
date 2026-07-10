@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@react-router/dev": "^7.17.0",
+    "@react-router/dev": "^8.0.1",
     "@tailwindcss/forms": "^0.5.11",
     "@tailwindcss/vite": "^4.3.1",
     "@testing-library/jest-dom": "^6.9.1",
